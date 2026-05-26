@@ -5,7 +5,21 @@ from instagram.auth.route import init_routes
 # Swagger UI
 from flask_swagger_ui import get_swaggerui_blueprint
 
+# --- ТУТ ДОДАЛИ ІМПОРТ БАЗИ ---
+from database import db 
+# ------------------------------
+
 app = Flask(__name__)
+
+# ----------------------- ТВОЯ БАЗА ДАНИХ AWS ---------------------------------
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:VG1EffhojWTk8618b0Yh@database-1.cb808coqmhto.eu-central-1.rds.amazonaws.com:3306/instagram'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# --- ТУТ ДОДАЛИ ІНІЦІАЛІЗАЦІЮ ---
+db.init_app(app)
+# --------------------------------
+
+# ... далі йде твій старий код (Swagger, routes тощо) ...
 
 # ----------------------- SWAGGER SERVE OPENAPI FILE -------------------------
 @app.route('/openapi.yml')
