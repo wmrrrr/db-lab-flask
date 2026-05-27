@@ -1,0 +1,8 @@
+flask
+flask-sqlalchemy
+pymysql
+cryptography
+blinker
+flask-swagger-ui
+pyyaml
+gunicorn
